@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="es-CL">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex, nofollow" />
+  <title>Panel · Transymec</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body class="admin-body" data-page="admin">
+  <!-- Pantalla de carga mientras se valida la sesión -->
+  <div class="auth-checking" id="authChecking">
+    <p>Verificando sesión…</p>
+  </div>
+
+  <!-- Contenido del panel (se revela solo si hay sesión válida) -->
+  <div class="admin-shell">
+    <header class="admin-top">
+      <div class="container admin-top__inner">
+        <a href="index.html" class="brand">
+          <span class="brand__mark" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M4 17h16M5 17V7a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v10M5 11h14"/>
+              <circle cx="8" cy="17" r="1.6"/><circle cx="16" cy="17" r="1.6"/>
+            </svg>
+          </span>
+          <span class="brand__text">Trans<span>ymec</span></span>
+        </a>
+        <div class="admin-user">
+          <span class="admin-user__name">👤 <strong id="whoami">—</strong></span>
+          <button class="btn btn--ghost-dark" id="logoutBtn">Cerrar sesión</button>
+        </div>
+      </div>
+    </header>
+
+    <main class="container admin-main">
+      <h1 class="admin-h1">Panel de administración</h1>
+      <p class="admin-lead">Bienvenido. Desde aquí podrás gestionar el contenido del sitio.</p>
+
+      <div class="admin-cards">
+        <div class="admin-card">
+          <span class="admin-card__icon">📩</span>
+          <h3>Cotizaciones</h3>
+          <p>Revisa las solicitudes recibidas desde el formulario de contacto.</p>
+          <span class="admin-badge">Próximamente</span>
+        </div>
+        <div class="admin-card">
+          <span class="admin-card__icon">🚌</span>
+          <h3>Flota</h3>
+          <p>Edita los vehículos, capacidades y características.</p>
+          <span class="admin-badge">Próximamente</span>
+        </div>
+        <div class="admin-card">
+          <span class="admin-card__icon">📍</span>
+          <h3>Destinos</h3>
+          <p>Agrega o quita ciudades de la cobertura.</p>
+          <span class="admin-badge">Próximamente</span>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="auth-config.js"></script>
+  <script src="auth.js"></script>
+</body>
+</html>
