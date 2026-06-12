@@ -73,7 +73,7 @@ counters.forEach((el) => counterObserver.observe(el));
 // ===== Formulario de contacto =====
 const form = document.getElementById("contactForm");
 const formMsg = document.getElementById("formMsg");
-form.addEventListener("submit", (e) => {
+form.addEventListener("submit", async (e) => {
   e.preventDefault();
   const nombre = form.nombre.value.trim();
   const email = form.email.value.trim();
@@ -90,8 +90,40 @@ form.addEventListener("submit", (e) => {
     return;
   }
 
-  // Aquí se conectaría con el backend / servicio de correo.
+  const submitBtn = form.querySelector('button[type="submit"]');
+  const originalText = submitBtn.textContent;
+  submitBtn.disabled = true;
+  submitBtn.textContent = "Enviando...";
   formMsg.style.color = "";
-  formMsg.textContent = "¡Gracias! Hemos recibido tu solicitud y te contactaremos pronto.";
-  form.reset();
+  formMsg.textContent = "";
+
+  try {
+    const response = await fetch(form.action, {
+      method: "POST",
+      body: new FormData(form),
+      headers: { Accept: "application/json" },
+    });
+
+    if (response.ok) {
+      formMsg.style.color = "";
+      formMsg.textContent =
+        "¡Gracias! Hemos recibido tu solicitud y te contactaremos pronto.";
+      form.reset();
+    } else {
+      const data = await response.json().catch(() => ({}));
+      const detail =
+        data.errors && data.errors.length
+          ? data.errors.map((er) => er.message).join(", ")
+          : "No pudimos enviar tu solicitud. Intenta nuevamente.";
+      formMsg.style.color = "#c0392b";
+      formMsg.textContent = detail;
+    }
+  } catch (err) {
+    formMsg.style.color = "#c0392b";
+    formMsg.textContent =
+      "Error de conexión. Revisa tu internet e intenta otra vez.";
+  } finally {
+    submitBtn.disabled = false;
+    submitBtn.textContent = originalText;
+  }
 });

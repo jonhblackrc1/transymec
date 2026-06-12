@@ -215,7 +215,9 @@
         </ul>
       </div>
 
-      <form class="contact__form" id="contactForm" novalidate>
+      <form class="contact__form" id="contactForm" action="https://formspree.io/f/mkoaqvpo" method="POST" novalidate>
+        <input type="hidden" name="_subject" value="Nueva cotización desde transymec.cl" />
+        <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off" aria-hidden="true" />
         <div class="field">
           <label for="nombre">Nombre</label>
           <input type="text" id="nombre" name="nombre" placeholder="Tu nombre" required />
