@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="es-CL">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Transymec - Transporte de pasajeros en buses. Servicios de turismo, transfer, traslado de personal y arriendo de buses en todo Chile." />
+  <title>Transymec | Transporte de Pasajeros en Buses</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <!-- ===== Header ===== -->
+  <header class="header" id="header">
+    <div class="container header__inner">
+      <a href="#inicio" class="brand" aria-label="Transymec inicio">
+        <span class="brand__mark" aria-hidden="true">
+          <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M4 17h16M5 17V7a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v10M5 11h14"/>
+            <circle cx="8" cy="17" r="1.6"/><circle cx="16" cy="17" r="1.6"/>
+          </svg>
+        </span>
+        <span class="brand__text">Trans<span>ymec</span></span>
+      </a>
+
+      <nav class="nav" id="nav">
+        <a href="#inicio" class="nav__link">Inicio</a>
+        <a href="#servicios" class="nav__link">Servicios</a>
+        <a href="#flota" class="nav__link">Flota</a>
+        <a href="#destinos" class="nav__link">Destinos</a>
+        <a href="#nosotros" class="nav__link">Nosotros</a>
+        <a href="#contacto" class="nav__cta">Cotizar</a>
+      </nav>
+
+      <button class="nav__toggle" id="navToggle" aria-label="Abrir menú" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- ===== Hero ===== -->
+  <section class="hero" id="inicio">
+    <div class="hero__overlay"></div>
+    <div class="container hero__content">
+      <p class="hero__eyebrow">Transporte de pasajeros · Chile</p>
+      <h1 class="hero__title">Viajamos contigo,<br><span>con seguridad y puntualidad</span></h1>
+      <p class="hero__lead">
+        En Transymec movemos a tu equipo, grupo o empresa con una flota moderna,
+        conductores profesionales y cobertura en todo el país.
+      </p>
+      <div class="hero__actions">
+        <a href="#contacto" class="btn btn--primary">Solicitar cotización</a>
+        <a href="#servicios" class="btn btn--ghost">Ver servicios</a>
+      </div>
+      <div class="hero__stats">
+        <div class="stat"><strong data-count="15">0</strong><span>Años de experiencia</span></div>
+        <div class="stat"><strong data-count="40">0</strong><span>Buses en flota</span></div>
+        <div class="stat"><strong data-count="500">0</strong><span>Empresas atendidas</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Servicios ===== -->
+  <section class="section" id="servicios">
+    <div class="container">
+      <div class="section__head">
+        <p class="section__eyebrow">Servicios</p>
+        <h2 class="section__title">Soluciones de transporte a tu medida</h2>
+        <p class="section__subtitle">Cubrimos desde el traslado diario de personal hasta viajes especiales de turismo.</p>
+      </div>
+
+      <div class="cards">
+        <article class="card">
+          <div class="card__icon">👷</div>
+          <h3>Traslado de personal</h3>
+          <p>Transporte seguro y puntual para trabajadores de empresas, faenas e industrias, con rutas y horarios fijos.</p>
+        </article>
+        <article class="card">
+          <div class="card__icon">🧳</div>
+          <h3>Turismo y excursiones</h3>
+          <p>Viajes grupales, tours y paseos a destinos turísticos con conductores guía y total comodidad.</p>
+        </article>
+        <article class="card">
+          <div class="card__icon">✈️</div>
+          <h3>Transfer aeropuerto</h3>
+          <p>Traslados hacia y desde el aeropuerto para grupos, delegaciones y comitivas, coordinados al detalle.</p>
+        </article>
+        <article class="card">
+          <div class="card__icon">🚌</div>
+          <h3>Arriendo de buses</h3>
+          <p>Arriendo de minibuses y buses con o sin conductor para eventos, congresos y matrimonios.</p>
+        </article>
+        <article class="card">
+          <div class="card__icon">🎓</div>
+          <h3>Transporte educacional</h3>
+          <p>Servicio para colegios, universidades y giras de estudio con todos los protocolos de seguridad.</p>
+        </article>
+        <article class="card">
+          <div class="card__icon">🏢</div>
+          <h3>Eventos corporativos</h3>
+          <p>Logística de transporte para empresas: seminarios, capacitaciones y celebraciones internas.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Flota ===== -->
+  <section class="section section--alt" id="flota">
+    <div class="container">
+      <div class="section__head">
+        <p class="section__eyebrow">Nuestra flota</p>
+        <h2 class="section__title">Vehículos modernos y mantenidos</h2>
+        <p class="section__subtitle">Cada unidad pasa por revisiones periódicas para garantizar tu seguridad.</p>
+      </div>
+
+      <div class="fleet">
+        <article class="fleet__item">
+          <div class="fleet__head"><span class="fleet__cap">Hasta 19 pax</span><h3>Minibús</h3></div>
+          <ul class="fleet__feats">
+            <li>Aire acondicionado</li>
+            <li>Asientos reclinables</li>
+            <li>Ideal para grupos pequeños</li>
+          </ul>
+        </article>
+        <article class="fleet__item fleet__item--featured">
+          <div class="fleet__head"><span class="fleet__cap">Hasta 32 pax</span><h3>Bus intermedio</h3></div>
+          <ul class="fleet__feats">
+            <li>Climatización completa</li>
+            <li>Bodega de equipaje</li>
+            <li>Pantallas y audio</li>
+            <li>Cinturones de seguridad</li>
+          </ul>
+        </article>
+        <article class="fleet__item">
+          <div class="fleet__head"><span class="fleet__cap">Hasta 45 pax</span><h3>Bus pullman</h3></div>
+          <ul class="fleet__feats">
+            <li>Asientos semicama</li>
+            <li>Baño a bordo</li>
+            <li>GPS y monitoreo</li>
+          </ul>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Destinos ===== -->
+  <section class="section" id="destinos">
+    <div class="container">
+      <div class="section__head">
+        <p class="section__eyebrow">Cobertura</p>
+        <h2 class="section__title">Llegamos a todo Chile</h2>
+        <p class="section__subtitle">Operamos rutas a lo largo del país, desde el norte hasta la zona austral.</p>
+      </div>
+
+      <div class="destinos">
+        <span class="chip">Santiago</span>
+        <span class="chip">Valparaíso</span>
+        <span class="chip">Viña del Mar</span>
+        <span class="chip">La Serena</span>
+        <span class="chip">Concepción</span>
+        <span class="chip">Temuco</span>
+        <span class="chip">Pucón</span>
+        <span class="chip">Puerto Montt</span>
+        <span class="chip">Rancagua</span>
+        <span class="chip">Talca</span>
+        <span class="chip">Antofagasta</span>
+        <span class="chip">Iquique</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Nosotros ===== -->
+  <section class="section section--alt" id="nosotros">
+    <div class="container about">
+      <div class="about__text">
+        <p class="section__eyebrow">Nosotros</p>
+        <h2 class="section__title">Más de una década moviendo a Chile</h2>
+        <p>
+          Transymec nace con el objetivo de ofrecer un servicio de transporte de pasajeros
+          confiable, seguro y de calidad. Trabajamos con empresas, instituciones y particulares
+          que necesitan trasladar grupos con la tranquilidad de estar en buenas manos.
+        </p>
+        <p>
+          Nuestro equipo de conductores cuenta con licencia profesional y capacitación constante,
+          y toda nuestra flota está al día con sus revisiones técnicas y seguros.
+        </p>
+        <ul class="about__list">
+          <li>✔ Conductores profesionales certificados</li>
+          <li>✔ Flota con mantenimiento preventivo</li>
+          <li>✔ Seguros de pasajeros vigentes</li>
+          <li>✔ Atención y coordinación personalizada</li>
+        </ul>
+      </div>
+      <div class="about__values">
+        <div class="value"><h4>Seguridad</h4><p>La integridad de nuestros pasajeros es siempre lo primero.</p></div>
+        <div class="value"><h4>Puntualidad</h4><p>Cumplimos los horarios acordados, viaje a viaje.</p></div>
+        <div class="value"><h4>Compromiso</h4><p>Acompañamos a cada cliente en toda la coordinación.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Contacto ===== -->
+  <section class="section" id="contacto">
+    <div class="container contact">
+      <div class="contact__info">
+        <p class="section__eyebrow">Contacto</p>
+        <h2 class="section__title">Cotiza tu próximo viaje</h2>
+        <p>Cuéntanos qué necesitas y te responderemos a la brevedad con una propuesta.</p>
+        <ul class="contact__list">
+          <li><span>📞</span> +56 9 1234 5678</li>
+          <li><span>✉️</span> contacto@transymec.cl</li>
+          <li><span>📍</span> Santiago, Chile</li>
+          <li><span>🕒</span> Lun a Sáb, 8:00 – 20:00</li>
+        </ul>
+      </div>
+
+      <form class="contact__form" id="contactForm" novalidate>
+        <div class="field">
+          <label for="nombre">Nombre</label>
+          <input type="text" id="nombre" name="nombre" placeholder="Tu nombre" required />
+        </div>
+        <div class="field">
+          <label for="email">Correo</label>
+          <input type="email" id="email" name="email" placeholder="tucorreo@ejemplo.cl" required />
+        </div>
+        <div class="field">
+          <label for="telefono">Teléfono</label>
+          <input type="tel" id="telefono" name="telefono" placeholder="+56 9 ..." />
+        </div>
+        <div class="field">
+          <label for="servicio">Servicio</label>
+          <select id="servicio" name="servicio">
+            <option value="">Selecciona un servicio</option>
+            <option>Traslado de personal</option>
+            <option>Turismo y excursiones</option>
+            <option>Transfer aeropuerto</option>
+            <option>Arriendo de buses</option>
+            <option>Transporte educacional</option>
+            <option>Eventos corporativos</option>
+          </select>
+        </div>
+        <div class="field field--full">
+          <label for="mensaje">Mensaje</label>
+          <textarea id="mensaje" name="mensaje" rows="4" placeholder="Cuéntanos fechas, cantidad de pasajeros y destino"></textarea>
+        </div>
+        <button type="submit" class="btn btn--primary btn--block">Enviar solicitud</button>
+        <p class="form__msg" id="formMsg" role="status"></p>
+      </form>
+    </div>
+  </section>
+
+  <!-- ===== Footer ===== -->
+  <footer class="footer">
+    <div class="container footer__inner">
+      <div class="footer__brand">
+        <span class="brand__text">Trans<span>ymec</span></span>
+        <p>Transporte de pasajeros en buses · Chile</p>
+      </div>
+      <nav class="footer__nav">
+        <a href="#servicios">Servicios</a>
+        <a href="#flota">Flota</a>
+        <a href="#destinos">Destinos</a>
+        <a href="#contacto">Contacto</a>
+      </nav>
+    </div>
+    <div class="footer__bottom">
+      <div class="container">
+        <p>© <span id="year"></span> Transymec. Todos los derechos reservados.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

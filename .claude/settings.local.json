@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "allow": [
+      "PowerShell(gh --version)",
+      "PowerShell(gh auth status)",
+      "Bash(git init *)",
+      "Bash(git add *)",
+      "Bash(git -c user.name=\"Transymec\" -c user.email=\"contacto@transymec.cl\" commit -m \"Sitio web Transymec - versión inicial\")"
+    ]
+  }
+}
