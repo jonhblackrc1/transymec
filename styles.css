@@ -290,3 +290,12 @@ a { text-decoration: none; color: inherit; }
   .admin-cards { grid-template-columns: 1fr; }
   .admin-user__name { display: none; }
 }
+
+/* ===== Logo corporativo ===== */
+.brand__logo { height: 54px; width: auto; display: block; }
+.auth-brand .brand__logo { height: 60px; margin: 0 auto; }
+.admin-top .brand__logo { height: 42px; }
+.footer__logo { height: 58px; width: auto; display: block; }
+@media (max-width: 600px) {
+  .brand__logo { height: 40px; }
+}

@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width="120" height="120" role="img" aria-label="TRANSYMEC">
+  <title>TRANSYMEC</title>
+  <rect width="120" height="120" rx="26" fill="#0F1E4D"/>
+  <g transform="translate(6 6) scale(.9)">
+  <defs>
+    <mask id="fav-body" maskUnits="userSpaceOnUse" x="0" y="0" width="120" height="120">
+      <rect width="120" height="120" fill="white"/>
+      <path d="M20 51 H96.5 Q98 51 98.8 52.4 L103.6 61.5 H20 Z" fill="black"/>
+      <path d="M85.5 50 H88.5 V62 H85.5 Z" fill="white"/>
+      <path d="M13 68 H110 V71.5 H13 Z" fill="black"/>
+      <circle cx="31" cy="80" r="9.6" fill="black"/><circle cx="91" cy="80" r="9.6" fill="black"/>
+    </mask>
+    <mask id="fav-stripe" maskUnits="userSpaceOnUse" x="0" y="0" width="120" height="120">
+      <rect width="120" height="120" fill="white"/>
+      <circle cx="31" cy="80" r="9.6" fill="black"/><circle cx="91" cy="80" r="9.6" fill="black"/>
+    </mask>
+    <mask id="fav-swoosh" maskUnits="userSpaceOnUse" x="0" y="0" width="120" height="120">
+      <rect width="120" height="120" fill="white"/>
+      <path d="M13 80 L13 52 Q13 45 20 45 L93 45 Q100 45 103 50.5 L109.2 62.5 Q110 64.2 110 66.5 L110 76 Q110 80 106 80 Z" fill="black" stroke="black" stroke-width="9" stroke-linejoin="round"/>
+      <path d="M101.5 47.5 Q109 46.5 113 50.5 Q114.6 52.3 114.4 56.5" fill="none" stroke="black" stroke-width="10" stroke-linecap="round"/>
+      <circle cx="31" cy="80" r="11" fill="black"/><circle cx="91" cy="80" r="11" fill="black"/>
+    </mask>
+  </defs>
+  <path mask="url(#fav-swoosh)" fill="#8FA4F0" fill-rule="evenodd"
+        d="M60 4 A56 56 0 1 1 59.99 4 Z M51 15 A48 48 0 1 0 51.01 15 Z"/>
+  <path d="M13 80 L13 52 Q13 45 20 45 L93 45 Q100 45 103 50.5 L109.2 62.5 Q110 64.2 110 66.5 L110 76 Q110 80 106 80 Z" fill="#FFFFFF" mask="url(#fav-body)"/>
+  <path d="M13 68 H110 V71.5 H13 Z" fill="#8FA4F0" mask="url(#fav-stripe)"/>
+  <path d="M101.5 47.5 Q109 46.5 113 50.5 Q114.6 52.3 114.4 56.5" fill="none" stroke="#FFFFFF" stroke-width="2.6" stroke-linecap="round"/>
+  <circle cx="31" cy="80" r="6.8" fill="#FFFFFF"/><circle cx="31" cy="80" r="2.3" fill="none"/><circle cx="91" cy="80" r="6.8" fill="#FFFFFF"/><circle cx="91" cy="80" r="2.3" fill="none"/>
+</g>
+</svg>
