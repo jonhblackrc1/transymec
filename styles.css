@@ -305,3 +305,12 @@ a { text-decoration: none; color: inherit; }
 @media (max-width: 600px) {
   .brand__logo { height: 40px; }
 }
+
+/* ===== Login: modo demo y acceso pasajero ===== */
+.auth-demo {
+  margin-top: 18px; padding: 12px 14px; border-radius: 12px; background: #FFF2D6; color: #6B4200;
+  font-size: .85rem; text-align: left; line-height: 1.55;
+}
+.auth-demo code { background: rgba(255,255,255,.7); padding: 1px 6px; border-radius: 5px; font-weight: 600; }
+.auth-alt { margin-top: 18px; font-size: .9rem; color: var(--muted); }
+.auth-alt a { color: var(--blue-500); font-weight: 600; }

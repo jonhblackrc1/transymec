@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es-CL">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="robots" content="noindex, nofollow" />
+  <meta name="theme-color" content="#0F1E4D" />
+  <title>Mis viajes · Transymec</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+  <link rel="apple-touch-icon" href="assets/logo/apple-touch-icon.png" />
+  <link rel="stylesheet" href="crm.css" />
+</head>
+<body>
+  <div class="boot" id="boot">Cargando…</div>
+  <div id="app" hidden>
+    <header class="app-top">
+      <a href="#/"><img src="assets/logo/transymec-logo-blanco.svg" alt="TRANSYMEC" /></a>
+      <div class="who"><strong id="meName"></strong>Conductor</div>
+      <button class="icon-btn" id="logout" aria-label="Cerrar sesión" title="Cerrar sesión"></button>
+    </header>
+    <div class="app">
+      <div id="demoSlot"></div>
+      <main id="view"></main>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="auth-config.js"></script>
+  <script src="js/crm-data.js"></script>
+  <script src="js/crm-ui.js"></script>
+  <script src="js/conductor.js"></script>
+</body>
+</html>

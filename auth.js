@@ -1,112 +1,58 @@
 // ============================================================
-//  Lógica de autenticación compartida (Supabase Auth)
+//  Ingreso al sistema (admin y conductores)
+//  Usa la capa de datos del CRM (js/crm-data.js) y redirige
+//  según el rol: admin → admin.html · conductor → conductor.html
 // ============================================================
+(function () {
+  const destino = (perfil) => (perfil.rol === "admin" ? "admin.html" : "conductor.html");
 
-const cfg = window.SUPABASE_CONFIG || {};
-const isConfigured =
-  cfg.url &&
-  cfg.anonKey &&
-  !cfg.url.includes("TU_PROYECTO") &&
-  !cfg.anonKey.includes("TU_ANON_KEY");
+  function showMsg(el, text, isError) {
+    if (!el) return;
+    el.textContent = text;
+    el.style.color = isError ? "#c0392b" : "";
+  }
 
-// Cliente de Supabase (la librería global se llama "supabase")
-const sb = isConfigured
-  ? window.supabase.createClient(cfg.url, cfg.anonKey)
-  : null;
+  function initLogin() {
+    const form = document.getElementById("loginForm");
+    if (!form || !window.CRM) return;
+    const msg = document.getElementById("loginMsg");
+    const btn = form.querySelector('button[type="submit"]');
 
-// ---------- Página de LOGIN ----------
-function initLogin() {
-  const form = document.getElementById("loginForm");
-  if (!form) return;
+    // Si ya hay sesión activa, ir directo a su panel.
+    window.CRM.auth.current().then((p) => { if (p) location.replace(destino(p)); }).catch(() => {});
 
-  const msg = document.getElementById("loginMsg");
-  const btn = form.querySelector('button[type="submit"]');
+    // En modo demostración, mostrar los accesos de prueba.
+    const info = document.getElementById("demoInfo");
+    if (info && window.CRM.DEMO_INFO) {
+      const d = window.CRM.DEMO_INFO;
+      info.innerHTML = `<strong>Modo demostración</strong> (datos de ejemplo en este navegador)<br>
+        Admin: <code>${d.admin}</code><br>Conductor: <code>${d.conductor}</code><br>
+        Pasajero: <a href="viaje.html?c=TX-DEMO24">${d.pasajero}</a>`;
+      info.hidden = false;
+    }
 
-  // Si ya hay sesión activa, ir directo al panel.
-  if (sb) {
-    sb.auth.getSession().then(({ data }) => {
-      if (data.session) location.replace("admin.html");
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      const usuario = form.usuario.value.trim();
+      const password = form.password.value;
+      if (!usuario || !password) { showMsg(msg, "Ingresa usuario y contraseña.", true); return; }
+
+      const original = btn.textContent;
+      btn.disabled = true;
+      btn.textContent = "Ingresando...";
+      showMsg(msg, "");
+      try {
+        const perfil = await window.CRM.auth.login(usuario, password);
+        location.replace(destino(perfil));
+      } catch (err) {
+        showMsg(msg, err.message || "Usuario o contraseña incorrectos.", true);
+        btn.disabled = false;
+        btn.textContent = original;
+      }
     });
   }
 
-  form.addEventListener("submit", async (e) => {
-    e.preventDefault();
-    const usuario = form.usuario.value.trim();
-    const password = form.password.value;
-
-    if (!usuario || !password) {
-      showMsg(msg, "Ingresa usuario y contraseña.", true);
-      return;
-    }
-
-    if (!sb) {
-      showMsg(
-        msg,
-        "El login aún no está configurado (falta conectar Supabase).",
-        true
-      );
-      return;
-    }
-
-    // Permitimos escribir solo "root": lo completamos al dominio interno.
-    const email = usuario.includes("@") ? usuario : `${usuario}@transymec.cl`;
-
-    const original = btn.textContent;
-    btn.disabled = true;
-    btn.textContent = "Ingresando...";
-    showMsg(msg, "");
-
-    const { error } = await sb.auth.signInWithPassword({ email, password });
-
-    if (error) {
-      // Mensaje genérico a propósito: no revelar si el usuario existe.
-      showMsg(msg, "Usuario o contraseña incorrectos.", true);
-      btn.disabled = false;
-      btn.textContent = original;
-      return;
-    }
-
-    location.replace("admin.html");
+  document.addEventListener("DOMContentLoaded", () => {
+    if (document.body.dataset.page === "login") initLogin();
   });
-}
-
-// ---------- Guardia del PANEL (admin) ----------
-async function guardAdmin() {
-  if (!sb) {
-    location.replace("login.html");
-    return;
-  }
-  const { data } = await sb.auth.getSession();
-  if (!data.session) {
-    location.replace("login.html");
-    return;
-  }
-
-  // Mostrar el email del usuario conectado.
-  const who = document.getElementById("whoami");
-  if (who) who.textContent = data.session.user.email;
-
-  // Botón de cerrar sesión.
-  const logout = document.getElementById("logoutBtn");
-  if (logout) {
-    logout.addEventListener("click", async () => {
-      await sb.auth.signOut();
-      location.replace("login.html");
-    });
-  }
-
-  // Revelar el contenido del panel (estaba oculto hasta validar sesión).
-  document.body.classList.add("auth-ready");
-}
-
-function showMsg(el, text, isError) {
-  if (!el) return;
-  el.textContent = text;
-  el.style.color = isError ? "#c0392b" : "";
-}
-
-// Punto de entrada según la página.
-document.addEventListener("DOMContentLoaded", () => {
-  if (document.body.dataset.page === "login") initLogin();
-  if (document.body.dataset.page === "admin") guardAdmin();
-});
+})();
