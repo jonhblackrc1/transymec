@@ -1,19 +1,22 @@
 /* ===== Variables & Reset ===== */
 :root {
-  --blue-900: #0b2545;
-  --blue-700: #13315c;
-  --blue-500: #1d4e89;
-  --accent: #f5a623;
-  --accent-dark: #e0911a;
-  --ink: #1b2430;
-  --muted: #5b6b7e;
+  /* Paleta alineada al logo TRANSYMEC */
+  --blue-900: #0F1E4D;   /* azul marino del logo */
+  --blue-700: #1A2A6C;
+  --blue-500: #2B3FA8;   /* azul real del swoosh */
+  --accent: #2B3FA8;
+  --accent-dark: #22338C;
+  --accent-light: #8FA4F0; /* azul cielo para fondos oscuros */
+  --accent-soft: #E8ECFB;
+  --ink: #141B33;
+  --muted: #5A6382;
   --bg: #ffffff;
-  --bg-alt: #f4f7fb;
-  --line: #e2e8f0;
+  --bg-alt: #F4F6FC;
+  --line: #E1E5F2;
   --white: #ffffff;
   --radius: 16px;
-  --shadow: 0 10px 30px rgba(11, 37, 69, 0.08);
-  --shadow-lg: 0 20px 50px rgba(11, 37, 69, 0.15);
+  --shadow: 0 10px 30px rgba(15, 30, 77, 0.08);
+  --shadow-lg: 0 20px 50px rgba(15, 30, 77, 0.15);
   --max: 1140px;
 }
 
@@ -43,8 +46,8 @@ a { text-decoration: none; color: inherit; }
   border: 2px solid transparent; transition: transform .15s ease, box-shadow .2s ease, background .2s ease;
 }
 .btn:active { transform: translateY(1px); }
-.btn--primary { background: var(--accent); color: var(--blue-900); }
-.btn--primary:hover { background: var(--accent-dark); box-shadow: 0 8px 20px rgba(245,166,35,.35); }
+.btn--primary { background: var(--accent); color: var(--white); }
+.btn--primary:hover { background: var(--accent-dark); box-shadow: 0 8px 20px rgba(43,63,168,.35); }
 .btn--ghost { background: transparent; color: var(--white); border-color: rgba(255,255,255,.6); }
 .btn--ghost:hover { background: rgba(255,255,255,.12); }
 .btn--block { width: 100%; }
@@ -91,21 +94,24 @@ a { text-decoration: none; color: inherit; }
   position: relative; min-height: 92vh; display: flex; align-items: center;
   padding-top: 72px; color: var(--white);
   background:
-    linear-gradient(120deg, rgba(11,37,69,.92), rgba(29,78,137,.75)),
+    linear-gradient(120deg, rgba(15,30,77,.94), rgba(43,63,168,.72)),
     url("https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?auto=format&fit=crop&w=1600&q=80") center/cover no-repeat;
 }
 .hero__content { position: relative; max-width: 760px; padding-top: 40px; padding-bottom: 40px; }
 .hero__eyebrow {
   display: inline-block; text-transform: uppercase; letter-spacing: 2px;
-  font-size: .78rem; font-weight: 600; color: var(--accent); margin-bottom: 18px;
+  font-size: .78rem; font-weight: 600; color: var(--accent-light); margin-bottom: 18px;
 }
 .hero__title { font-size: clamp(2.2rem, 5vw, 3.6rem); font-weight: 800; }
-.hero__title span { color: var(--accent); }
+.hero__title span { color: var(--accent-light); }
 .hero__lead { margin: 22px 0 32px; font-size: 1.12rem; max-width: 560px; color: rgba(255,255,255,.9); }
 .hero__actions { display: flex; gap: 14px; flex-wrap: wrap; }
+.hero .btn--primary { background: var(--white); color: var(--blue-900); }
+.hero .btn--primary:hover { background: var(--accent-soft); box-shadow: 0 8px 24px rgba(0,0,0,.25); }
+.stat strong { border-bottom: 3px solid var(--accent-light); padding-bottom: 4px; display: inline-block; }
 
 .hero__stats { display: flex; gap: 40px; margin-top: 56px; flex-wrap: wrap; }
-.stat strong { display: block; font-family: "Poppins"; font-size: 2.2rem; color: var(--accent); }
+.stat strong { display: block; font-family: "Poppins"; font-size: 2.2rem; color: var(--white); }
 .stat span { font-size: .9rem; color: rgba(255,255,255,.85); }
 
 /* ===== Sections ===== */
@@ -134,7 +140,7 @@ a { text-decoration: none; color: inherit; }
   padding: 30px; box-shadow: var(--shadow); display: flex; flex-direction: column; gap: 20px;
 }
 .fleet__item--featured { border: 2px solid var(--accent); transform: translateY(-8px); }
-.fleet__cap { display: inline-block; font-size: .8rem; font-weight: 600; color: var(--blue-500); background: var(--bg-alt); padding: 5px 12px; border-radius: 999px; }
+.fleet__cap { display: inline-block; font-size: .8rem; font-weight: 600; color: var(--blue-500); background: var(--accent-soft); padding: 5px 12px; border-radius: 999px; }
 .fleet__head h3 { margin-top: 12px; color: var(--blue-900); font-size: 1.4rem; }
 .fleet__feats { list-style: none; display: flex; flex-direction: column; gap: 10px; }
 .fleet__feats li { position: relative; padding-left: 26px; color: var(--ink); }
@@ -178,7 +184,7 @@ a { text-decoration: none; color: inherit; }
   font-family: inherit; font-size: .96rem; color: var(--ink); background: var(--bg); transition: border-color .2s ease, box-shadow .2s ease;
 }
 .field input:focus, .field select:focus, .field textarea:focus {
-  outline: none; border-color: var(--blue-500); box-shadow: 0 0 0 3px rgba(29,78,137,.12);
+  outline: none; border-color: var(--blue-500); box-shadow: 0 0 0 3px rgba(43,63,168,.15);
 }
 .contact__form .btn--block { grid-column: 1 / -1; }
 .form__msg { grid-column: 1 / -1; font-weight: 600; color: var(--blue-500); min-height: 1.2em; text-align: center; }
@@ -190,7 +196,7 @@ a { text-decoration: none; color: inherit; }
 .footer__brand p { font-size: .9rem; margin-top: 6px; color: rgba(255,255,255,.65); }
 .footer__nav { display: flex; gap: 26px; flex-wrap: wrap; }
 .footer__nav a { color: rgba(255,255,255,.85); font-weight: 500; transition: color .2s ease; }
-.footer__nav a:hover { color: var(--accent); }
+.footer__nav a:hover { color: var(--accent-light); }
 .footer__bottom { border-top: 1px solid rgba(255,255,255,.12); }
 .footer__bottom p { padding: 20px 0; font-size: .88rem; text-align: center; color: rgba(255,255,255,.6); }
 
@@ -244,7 +250,7 @@ a { text-decoration: none; color: inherit; }
   transition: border-color .2s ease, box-shadow .2s ease;
 }
 .auth-form input:focus {
-  outline: none; border-color: var(--blue-500); box-shadow: 0 0 0 3px rgba(29,78,137,.12);
+  outline: none; border-color: var(--blue-500); box-shadow: 0 0 0 3px rgba(43,63,168,.15);
 }
 .pwd { position: relative; }
 .pwd input { padding-right: 46px; }
@@ -284,7 +290,7 @@ a { text-decoration: none; color: inherit; }
 .admin-card p { color: var(--muted); font-size: .95rem; }
 .admin-badge {
   display: inline-block; margin-top: 14px; font-size: .76rem; font-weight: 600;
-  color: var(--accent-dark); background: #fdf3e1; padding: 4px 12px; border-radius: 999px;
+  color: var(--accent); background: var(--accent-soft); padding: 4px 12px; border-radius: 999px;
 }
 @media (max-width: 760px) {
   .admin-cards { grid-template-columns: 1fr; }
